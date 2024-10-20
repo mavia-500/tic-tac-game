@@ -7,7 +7,7 @@ const Requirements = () => {
     const [colums,setColums]=useState();
     const [value,setValue]=useState(3);
     const submitHandler =()=>{
-        if(colums>2 && colums<100){
+        if(colums>2 && colums<40){
             setValue(colums)
             
         }
@@ -36,7 +36,7 @@ const Requirements = () => {
                 >Submit</button>
                
             </div>
-            <Combinations colums={value}/>
+            <Combinations colums={value} setValue={setValue}/>
            
            
             

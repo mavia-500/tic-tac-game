@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-const Board = ({ colums, checkWinner, winner }) => {
+const Board = ({ colums, checkWinner, winner,setWinner,setValue }) => {
 
     let alpha = colums * colums;
 
@@ -18,16 +18,31 @@ const Board = ({ colums, checkWinner, winner }) => {
 
 
     const clickHandler = (value, index) => {
-        // console.log(this.index);
+        
+        if(!winner){
         if (!value) {
             const newArr = [...btnArr];
             newArr[index] = turn ? 'X' : 'O';
             setbtnArr(newArr);
             setTurn(!turn);
             checkWinner(newArr)
+            console.log(winner)
+            
         }
+    }
+    else{
+        alert(`Here is Winner ${winner} Pleasa Retart The Game`)
+    }
 
+    }
 
+    const restarter=()=>{
+        setValue(3)
+        console.log(colums)
+        setbtnArr(Array(colums * colums).fill(null))
+        setWinner(null)
+        
+        
     }
 
 
@@ -46,8 +61,16 @@ const Board = ({ colums, checkWinner, winner }) => {
                         </button>
                     ))}
                 </div>
-                {winner && <div className='bg-red-600 p-3'>here is the winner{winner}</div>}
 
+            </div>
+            <div>
+                {winner && <div className='bg-red-600 p-3 mb-9'>here is the winner{winner}</div>}
+
+
+            </div>
+            <div className=' flex justify-center items-center mb-9 '>
+                <button onClick={restarter} className="bg-blue-500 text-white p-4 rounded hover:bg-blue-700"
+                >Restart The Game</button>
             </div>
         </>)
 }

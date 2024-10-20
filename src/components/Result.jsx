@@ -1,7 +1,7 @@
 import React from 'react'
 import Board from './Board';
 import { useState } from 'react';
-const Result = ({colums, generateCombinations}) => {
+const Result = ({colums, generateCombinations,setValue}) => {
     const [winner, setWinner] = useState(null)
 
     const checkWinner = (currentArr) => {
@@ -28,7 +28,7 @@ const Result = ({colums, generateCombinations}) => {
     };
   return (
     <>
-     <Board colums={colums} checkWinner={checkWinner} winner={winner} />
+     <Board colums={colums} setValue={setValue} checkWinner={checkWinner} winner={winner} setWinner={setWinner} />
       
       {/* <Board checkWinner={checkWinner}/> */}
     </>

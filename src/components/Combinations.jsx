@@ -1,7 +1,7 @@
 import React from 'react'
 import Result from './Result';
 
-const Combinations = ({colums}) => {
+const Combinations = ({colums, setValue}) => {
     
 
     const generateCombinations = () => {
@@ -49,7 +49,7 @@ const Combinations = ({colums}) => {
     }
   return (
     <>
-       <Result colums={colums} generateCombinations={generateCombinations} />
+       <Result colums={colums} setValue={setValue} generateCombinations={generateCombinations}  />
     </>
   )
 }
